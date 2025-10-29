@@ -8,26 +8,27 @@ import 'package:taskdone/utilities/styles/text_styles.dart';
 class ButtonWidget extends StatelessWidget {
   final VoidCallback? onPress;
   final String? buttonText;
+  final Color? color;
+  final TextStyle? textStyle;
 
-  const ButtonWidget({super.key, this.buttonText, this.onPress});
+  const ButtonWidget({super.key, this.buttonText, this.onPress, this.color, this.textStyle});
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 90.0.w,
+      width: 80.0.w,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(1.3.h),
+            borderRadius: BorderRadius.circular(20.h),
           ),
-          backgroundColor: AppColors.whiteColor,
-          padding: EdgeInsets.symmetric(horizontal: 6.0.h, vertical: 1.5.h),
-          // textStyle: AppTextStyle.buttonTextStyle,
+          backgroundColor: color,
+          padding: EdgeInsets.symmetric(vertical: 1.5.h),
         ),
         onPressed: onPress,
         child: Text(
           buttonText ?? "",
-          style: AppTextStyle.buttonTextStyle,
+          style: textStyle,
         ),
       ),
     );
@@ -49,14 +50,14 @@ class ButtonWidgetBlue extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(1.3.h),
           ),
-          backgroundColor: AppColors.blueColor,
+          backgroundColor: AppColors.purple,
           padding: EdgeInsets.symmetric(horizontal: 6.0.h, vertical: 1.5.h),
           // textStyle: AppTextStyle.buttonTextStyle,
         ),
         onPressed: onPress,
         child: Text(
           buttonText ?? "",
-          style: AppTextStyle.buttonTextStyle.copyWith(color: Colors.white),
+          style: AppTextStyle.normalGrey8.copyWith(color: Colors.white),
         ),
       ),
     );

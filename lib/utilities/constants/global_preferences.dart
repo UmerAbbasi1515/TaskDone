@@ -1,22 +1,6 @@
 import 'package:encrypted_shared_preferences/encrypted_shared_preferences.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class GlobalPreferencesLabels {
-  static String loginToken = "4E7Bg";
-  static String phoneNumber = "jpPnx";
-  static String userName = "5J8mC";
-  static String userNameAr = "r5d6y";
-  static String isLoginBool = "05zpm";
-  static String fingerPrint = "LpkDI";
-  static String deviceToken = "Apk3I";
-  static String blockTime = "Pme4Q";
-  static String isBlocked = "Lxk9P";
-  static String isEnglish = "RvS3L";
-  static String setLanguage = "0Lk3V";
-  static String langId = "KcW2t";
-  static String userID = "KcW2t2310";
-  static String videoTutorail = "KcW2t1032";
-}
 
 class GlobalPreferences {
   static getInt(key) async {

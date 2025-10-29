@@ -44,20 +44,20 @@ class _NoInternetScreenState extends State<NoInternetScreen> {
                       Padding(
                         padding: EdgeInsets.only(top: 15.h),
                         child: Image.asset(
-                          AppImagesPath.logo,
+                          AppImagesPath.back,
                           width: 45.w,
                           fit: BoxFit.contain,
                         ),
                       ),
                       Padding(
                         padding: EdgeInsets.only(top: 2.h),
-                        child: Text(AppLabels().noInternetConnection,
-                            style: AppTextStyle.semiBoldWhite14),
+                        child: Text(AppLabels.noInternetConnection,
+                            style: AppTextStyle.normalGrey8),
                       ),
                       Padding(
                           padding: EdgeInsets.only(top: 10.0.h),
                           child: ButtonWidget(
-                            buttonText: AppLabels().retry,
+                            buttonText: AppLabels.retry,
                             onPress: () async {
                               bool isInternetConnected =
                                   await BaseClientClass.isInternetConnected();

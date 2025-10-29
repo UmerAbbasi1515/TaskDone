@@ -18,7 +18,7 @@ class GetDataService {
         String byteString = resp["bytes"];
         return base64Decode(byteString.replaceAll('\n', ''));
       } catch (_) {
-        return AppLabels().test;
+        return AppLabels.error;
       }
     }
     return response;

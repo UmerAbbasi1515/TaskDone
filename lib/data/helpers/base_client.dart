@@ -62,16 +62,16 @@ class BaseClientClass {
       return 'No internet connection';
     } on TimeoutException {
       getx.Get.snackbar(
-        AppLabels().error,
-        AppLabels().connectionTimedOut,
-        backgroundColor: AppColors.white54,
+        AppLabels.error,
+        AppLabels.connectionTimedOut,
+        backgroundColor: AppColors.purple,
       );
-      return AppLabels().connectionTimedOut;
+      return AppLabels.connectionTimedOut;
     } catch (e) {
       if (kDebugMode) {
         print('catch :::: => $e');
       }
-      return AppLabels().anyError;
+      return AppLabels.anyError;
     }
   }
 
@@ -125,16 +125,16 @@ class BaseClientClass {
       return 'No internet connection';
     } on TimeoutException {
       getx.Get.snackbar(
-        AppLabels().error,
-        AppLabels().connectionTimedOut,
-        backgroundColor: AppColors.white54,
+        AppLabels.error,
+        AppLabels.connectionTimedOut,
+        backgroundColor: AppColors.purple,
       );
-      return AppLabels().connectionTimedOut;
+      return AppLabels.connectionTimedOut;
     } catch (e) {
       if (kDebugMode) {
         print('catch :::: => $e');
       }
-      return AppLabels().anyError;
+      return AppLabels.anyError;
     }
   }
 
@@ -188,16 +188,16 @@ class BaseClientClass {
       return 'No internet connection';
     } on TimeoutException {
       getx.Get.snackbar(
-        AppLabels().error,
-        AppLabels().connectionTimedOut,
-        backgroundColor: AppColors.white54,
+        AppLabels.error,
+        AppLabels.connectionTimedOut,
+        backgroundColor: AppColors.purple,
       );
-      return AppLabels().connectionTimedOut;
+      return AppLabels.connectionTimedOut;
     } catch (e) {
       if (kDebugMode) {
         print('catch :::: => $e');
       }
-      return AppLabels().anyError;
+      return AppLabels.anyError;
     }
   }
 
@@ -247,11 +247,11 @@ class BaseClientClass {
       // in multipart we are not calling _getResponse for handle the response
       if (response.statusCode == 401) {
         getx.Get.snackbar(
-          AppLabels().error,
-          AppLabels().unauthorized,
-          backgroundColor: AppColors.white54,
+          AppLabels.error,
+          AppLabels.unauthorized,
+          backgroundColor: AppColors.purple,
         );
-        return AppLabels().unauthorized;
+        return AppLabels.unauthorized;
       }
       // Response of UploadFile
       // The below lines for print the response of uploadFile
@@ -305,50 +305,50 @@ class BaseClientClass {
     }
     
     if (response.body.contains('BadRequestExecution Timeout Expired')) {
-      return AppLabels().connectionTimedOut;
+      return AppLabels.connectionTimedOut;
     }
 
     switch (response.statusCode) {
       case 200:
         return response;
       case 400:
-        return AppLabels().badRequest;
+        return AppLabels.badRequest;
       case 401:
         getx.Get.snackbar(
-          AppLabels().error,
-          AppLabels().unauthorized,
-          backgroundColor: AppColors.white54,
+          AppLabels.error,
+          AppLabels.unauthorized,
+          backgroundColor: AppColors.purple,
         );
-        return AppLabels().unauthorized;
+        return AppLabels.unauthorized;
       case 403:
         getx.Get.snackbar(
-          AppLabels().error,
-          AppLabels().unauthorized,
-          backgroundColor: AppColors.white54,
+          AppLabels.error,
+          AppLabels.unauthorized,
+          backgroundColor: AppColors.purple,
         );
-        return AppLabels().unauthorized;
+        return AppLabels.unauthorized;
       case 404:
-        return AppLabels().noDatafound;
+        return AppLabels.noDatafound;
       case 500:
-        return AppLabels().anyError;
+        return AppLabels.anyError;
       case 501:
         if (kDebugMode) {
           print(response.body);
         }
         getx.Get.snackbar(
-          AppLabels().error,
-          AppLabels().processingError,
-          backgroundColor: AppColors.white54,
+          AppLabels.error,
+          AppLabels.processingError,
+          backgroundColor: AppColors.purple,
         );
-        return AppLabels().noDatafound;
+        return AppLabels.noDatafound;
 
       default:
         getx.Get.snackbar(
-          AppLabels().error,
-          AppLabels().couldNotConnectToServer,
-          backgroundColor: AppColors.white54,
+          AppLabels.error,
+          AppLabels.couldNotConnectToServer,
+          backgroundColor: AppColors.purple,
         );
-        return AppLabels().couldNotConnectToServer;
+        return AppLabels.couldNotConnectToServer;
     }
   }
 }
