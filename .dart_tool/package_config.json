@@ -224,6 +224,12 @@
       "languageVersion": "3.2"
     },
     {
+      "name": "pin_code_fields",
+      "rootUri": "file:///Users/apple/.pub-cache/hosted/pub.dev/pin_code_fields-8.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "platform",
       "rootUri": "file:///Users/apple/.pub-cache/hosted/pub.dev/platform-3.1.6",
       "packageUri": "lib/",
@@ -374,7 +380,7 @@
       "languageVersion": "3.6"
     }
   ],
-  "generated": "2025-10-29T19:10:27.841728Z",
+  "generated": "2025-10-29T20:11:17.986797Z",
   "generator": "pub",
   "generatorVersion": "3.6.0",
   "flutterRoot": "file:///Users/apple/System/DevTools/flutter",

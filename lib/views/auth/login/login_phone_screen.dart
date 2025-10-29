@@ -9,6 +9,8 @@ import 'package:taskdone/utilities/constants/assets_path.dart';
 import 'package:taskdone/utilities/constants/meta_labels.dart';
 import 'package:taskdone/utilities/styles/colors.dart';
 import 'package:taskdone/utilities/styles/text_styles.dart';
+import 'package:taskdone/views/auth/login/login_controller.dart';
+import 'package:taskdone/views/auth/login/otp_screen.dart';
 
 class LoginPhoneScreen extends StatefulWidget {
   const LoginPhoneScreen({super.key});
@@ -18,7 +20,7 @@ class LoginPhoneScreen extends StatefulWidget {
 }
 
 class _LoginPhoneScreenState extends State<LoginPhoneScreen> {
-  final TextEditingController phoneController = TextEditingController();
+  LoginController controller = Get.put(LoginController());
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +42,6 @@ class _LoginPhoneScreenState extends State<LoginPhoneScreen> {
                   height: 2.h,
                 ),
               ),
-
               SizedBox(height: 30.h),
               Center(
                 child: Text(
@@ -50,7 +51,6 @@ class _LoginPhoneScreenState extends State<LoginPhoneScreen> {
                 ),
               ),
               SizedBox(height: 2.h),
-
               Center(
                 child: Text(
                   AppLabels.verifyyourPhone,
@@ -58,9 +58,7 @@ class _LoginPhoneScreenState extends State<LoginPhoneScreen> {
                   textAlign: TextAlign.center,
                 ),
               ),
-
               SizedBox(height: 3.h),
-
               Container(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
@@ -75,6 +73,7 @@ class _LoginPhoneScreenState extends State<LoginPhoneScreen> {
                         if (kDebugMode) {
                           print(code);
                         }
+                        controller.countryCode.value = code.toString();
                       },
                       initialSelection: 'Pk',
                       showCountryOnly: false,
@@ -83,7 +82,7 @@ class _LoginPhoneScreenState extends State<LoginPhoneScreen> {
                     ),
                     Expanded(
                       child: TextField(
-                        controller: phoneController,
+                        controller: controller.phoneController,
                         keyboardType: TextInputType.number,
                         inputFormatters: [
                           // Allow only digits (0-9)
@@ -106,7 +105,15 @@ class _LoginPhoneScreenState extends State<LoginPhoneScreen> {
                 child: ButtonWidget(
                   buttonText: AppLabels.next,
                   onPress: () {
-                    Get.to(() => LoginPhoneScreen());
+                    if (controller.phoneController.text == "") {
+                      Get.snackbar("Error", "Please enter phone number");
+                      return;
+                    }
+                    var mobileNumber = controller.countryCode.value +
+                        controller.phoneController.text;
+                    Get.to(() => OTPScreen(
+                          phone: mobileNumber,
+                        ));
                   },
                   color: AppColors.purple,
                   textStyle: AppTextStyle.regularWhite18,
