@@ -3,6 +3,7 @@ class AppImagesPath {
   
   static const String add = '$commonRoot/add.png';
   static const String login = '$commonRoot/login.png';
+  static const String profile = '$commonRoot/profile.png';
   static const String splash = '$commonRoot/splash.png';
   static const String splashTaskDone = '$commonRoot/splashTaskDone.png';
   static const String back  = '$commonRoot/back.png';

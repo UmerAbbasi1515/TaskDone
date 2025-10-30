@@ -61,7 +61,10 @@ class AppLabels {
   static String phoneNumber = 'Phone Number';
   static String emailAddress = 'Email Address';
   static String location = 'Location';
-  static String iAgreeTo = 'I agree to the  ';
+  static String enterFullName = 'Enter Full Name';
+  static String enterEmailAddress = 'Enter Email Address';
+  static String enterLocation = 'Enter Location';
+  static String iAgreeTo = 'I agree to the ';
   static String termAndPrivacyPolicy = 'Terms & Privacy Policy';
   static String connectYourWallet = 'Connect Your Wallet';
   static String linkedAccount = 'Linked Account';

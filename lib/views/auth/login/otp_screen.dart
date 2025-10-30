@@ -9,6 +9,7 @@ import 'package:taskdone/utilities/constants/meta_labels.dart';
 import 'package:taskdone/utilities/styles/colors.dart';
 import 'package:taskdone/utilities/styles/text_styles.dart';
 import 'package:taskdone/views/auth/login/otp_controller.dart';
+import 'package:taskdone/views/profile/create_profile_screen.dart';
 
 class OTPScreen extends StatefulWidget {
   final String phone;
@@ -74,22 +75,35 @@ class _OTPScreenState extends State<OTPScreen> {
                   }
                 },
                 pinTheme: PinTheme(
-                  selectedColor: Colors.grey,
-                  disabledColor: Colors.red,
-                  errorBorderColor: Colors.red,
-                  selectedFillColor: Colors.transparent,
-                  activeColor: Colors.white,
+                  activeBoxShadow: [
+                    BoxShadow(
+                      color: AppColors.boxShadow,
+                      blurRadius: 7,
+                      offset: Offset(0, 6),
+                    ),
+                  ],
+                  inActiveBoxShadow: [
+                    BoxShadow(
+                      color: AppColors.boxShadow,
+                      blurRadius: 7,
+                      offset: Offset(0, 6),
+                    ),
+                  ],
+                  selectedColor: AppColors.grey,
+                  errorBorderColor: AppColors.red,
+                  selectedFillColor: AppColors.grey,
+                  activeColor: AppColors.white,
                   inactiveColor: controller.error.value != ''
                       ? Colors.red
                       : controller.validOTP.value == false
-                          ? Colors.grey
-                          : Colors.white54,
+                          ? AppColors.grey
+                          : AppColors.red,
                   shape: PinCodeFieldShape.box,
                   borderRadius: BorderRadius.circular(1.0.h),
                   fieldHeight: 6.0.h,
                   fieldWidth: 12.0.w,
-                  activeFillColor: Colors.grey,
-                  inactiveFillColor: Colors.grey,
+                  activeFillColor: AppColors.grey,
+                  inactiveFillColor: AppColors.grey,
                 ),
                 cursorColor: Colors.white,
                 animationDuration: const Duration(milliseconds: 300),
@@ -105,8 +119,7 @@ class _OTPScreenState extends State<OTPScreen> {
                     controller.otpCode.value = otpCode;
                   });
                 },
-                onChanged: (value) {
-                },
+                onChanged: (value) {},
                 beforeTextPaste: (text) {
                   return false;
                 },
@@ -115,7 +128,9 @@ class _OTPScreenState extends State<OTPScreen> {
               Center(
                 child: ButtonWidget(
                   buttonText: AppLabels.done,
-                  onPress: () {},
+                  onPress: () {
+                    Get.to(() => ProfileCreateScreen());
+                  },
                   color: AppColors.purple,
                   textStyle: AppTextStyle.regularWhite18,
                 ),
