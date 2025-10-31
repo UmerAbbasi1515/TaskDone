@@ -105,10 +105,10 @@ class _LoginPhoneScreenState extends State<LoginPhoneScreen> {
                 child: ButtonWidget(
                   buttonText: AppLabels.next,
                   onPress: () {
-                    if (controller.phoneController.text == "") {
-                      Get.snackbar("Error", "Please enter phone number");
-                      return;
-                    }
+                    // if (controller.phoneController.text == "") {
+                    //   Get.snackbar("Error", "Please enter phone number");
+                    //   return;
+                    // }
                     var mobileNumber = controller.countryCode.value +
                         controller.phoneController.text;
                     Get.to(() => OTPScreen(

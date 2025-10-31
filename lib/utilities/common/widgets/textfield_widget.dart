@@ -5,16 +5,25 @@ import 'package:taskdone/utilities/styles/colors.dart';
 class TextFiledWidget extends StatelessWidget {
   final String hintText;
   final TextEditingController controller;
+  final Function(String)? onChanged;
+  final TextInputType? keyboardType;
+  final Function()? onCompleted;
   const TextFiledWidget({
     super.key,
     required this.controller,
     required this.hintText,
+    this.onChanged,
+    this.onCompleted,
+    this.keyboardType,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextField(
       controller: controller,
+      onChanged: onChanged,
+      onEditingComplete: onCompleted,
+      keyboardType: keyboardType,
       decoration: InputDecoration(
         filled: true,
         fillColor: AppColors.grey, // light grey background
