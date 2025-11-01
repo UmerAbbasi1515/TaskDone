@@ -15,6 +15,7 @@ class AppLabels {
   // Buttons
   static String continu = 'Continue';
   static String next = 'Next';
+  static String back = 'Back';
   static String continueWithPhone = 'Continue With Phone';
   static String continueWithGoogle = 'Continue With Google';
   static String done = 'Done';
@@ -28,6 +29,8 @@ class AppLabels {
   static String hire = 'Hire';
   static String viewMytask = 'View My Task';
   static String login = 'Login';
+  static String bookNow = 'Book Now';
+  static String seeMore = 'See More';
 
   // Tabs
   static String active = 'Active';
@@ -35,7 +38,6 @@ class AppLabels {
   static String history = 'History';
 
   // Titles
-  static String back = 'Back';
   static String posttask = 'Post task';
   static String myJobs = 'My Jobs';
   static String fincdWorkNearYou = 'Find Work Near You';
@@ -74,4 +76,30 @@ class AppLabels {
   static String choseYourWalet = 'Choose Your Wallet';
   static String easyPaisa = 'Easypaisa';
   static String jazzCash = 'JazzCash';
+  static String home = 'Home';
+  static String jobs = 'Jobs';
+  static String workers = 'Worker';
+  static String services = 'Services';
+  static String messages = 'Messages';
+  static String topWorkers = 'Top Worker';
+  static String whatServiceDoYouWant = 'What Service do you want?';
+  static String searchForServices = 'Search for services';
+  static String serviceCategories = 'Service Categories';
+  static String popularServices = 'Popular Service';
+  static String topPopularServices = 'Top Popular Service';
+  static String viewAll = 'View All';
+  static String painter = 'Painter';
+  static String borehole = 'Borehole';
+  static String architech = 'Architech';
+  static String taskNmar = 'Task Name';
+  static String category = 'Category';
+  static String attachemnt = 'Attachement';
+  static String description = 'Description';
+  static String budget = 'Budget';
+  static String paymentMethoid = 'Payment Method';
+  static String deadline = 'Deadline';
+  static String city = 'City';
+  static String taskPostedSuccessfully = 'Task Posted Successfully';
+  static String yourPostPostedSuccessfully = 'Your Task has been Posted Successfully';
+  static String currentAddress = 'Current Address';
   }

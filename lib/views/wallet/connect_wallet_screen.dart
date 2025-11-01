@@ -9,6 +9,7 @@ import 'package:taskdone/utilities/constants/assets_path.dart';
 import 'package:taskdone/utilities/constants/meta_labels.dart';
 import 'package:taskdone/utilities/styles/colors.dart';
 import 'package:taskdone/utilities/styles/text_styles.dart';
+import 'package:taskdone/views/home/dashoard_screen.dart';
 import 'package:taskdone/views/wallet/connect_wallet_controller.dart';
 
 class ConnectWalletScreen extends StatefulWidget {
@@ -164,7 +165,9 @@ class _ConnectWalletScreenState extends State<ConnectWalletScreen> {
                 Center(
                   child: ButtonWidget(
                     buttonText: AppLabels.next,
-                    onPress: () {},
+                    onPress: () {
+                      Get.offAll(() => DashboardSreen());
+                    },
                     color: AppColors.purple,
                     textStyle: AppTextStyle.regularWhite18,
                   ),

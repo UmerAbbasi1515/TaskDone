@@ -15,4 +15,14 @@ class AppImagesPath {
   static const String onboarding3 = '$commonRoot/onboarding3.png';
   static const String postatask = '$commonRoot/postatask.png';
   static const String workerastasker = '$commonRoot/workerastasker.png';
+  static const String jobs = '$commonRoot/jobs.png';
+  static const String jobsSelected = '$commonRoot/jobsSelected.png';
+  static const String worker = '$commonRoot/worker.png';
+  static const String workerSelected = '$commonRoot/workerSelected.png';
+  static const String messege = '$commonRoot/messege.png';
+  static const String messegeSelected = '$commonRoot/messegeSelected.png';
+  static const String home = '$commonRoot/home.png';
+  static const String homeSelected = '$commonRoot/homeSelected.png';
+  static const String services = '$commonRoot/services.png';
+  static const String servicesSelected = '$commonRoot/servicesSelected.png';
 }

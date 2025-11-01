@@ -2,6 +2,12 @@
   "configVersion": 2,
   "packages": [
     {
+      "name": "animated_bottom_navigation_bar",
+      "rootUri": "file:///Users/apple/.pub-cache/hosted/pub.dev/animated_bottom_navigation_bar-1.4.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
       "name": "args",
       "rootUri": "file:///Users/apple/.pub-cache/hosted/pub.dev/args-2.7.0",
       "packageUri": "lib/",
@@ -380,7 +386,7 @@
       "languageVersion": "3.6"
     }
   ],
-  "generated": "2025-10-29T20:11:17.986797Z",
+  "generated": "2025-11-01T18:58:56.799526Z",
   "generator": "pub",
   "generatorVersion": "3.6.0",
   "flutterRoot": "file:///Users/apple/System/DevTools/flutter",

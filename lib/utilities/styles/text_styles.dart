@@ -30,6 +30,13 @@ class AppTextStyle {
     fontWeight: FontWeight.normal,
     fontSize: 17.0.sp,
   );
+  
+  static TextStyle regularPurple17 = TextStyle(
+    color: AppColors.purple,
+    fontFamily: AppFonts.openSansRegular,
+    fontWeight: FontWeight.normal,
+    fontSize: 17.0.sp,
+  );
   static TextStyle regularWhite18 = TextStyle(
     color: AppColors.white,
     fontFamily: AppFonts.openSansRegular,
@@ -48,6 +55,19 @@ class AppTextStyle {
     fontFamily: AppFonts.openSansRegular,
     fontWeight: FontWeight.normal,
     fontSize: 13.0.sp,
+  );
+
+    static TextStyle regularblack14 = TextStyle(
+    color: AppColors.black,
+    fontFamily: AppFonts.openSansRegular,
+    fontWeight: FontWeight.normal,
+    fontSize: 14.0.sp,
+  );
+  static TextStyle regularPurple14 = TextStyle(
+    color: AppColors.purple,
+    fontFamily: AppFonts.openSansRegular,
+    fontWeight: FontWeight.normal,
+    fontSize: 14.0.sp,
   );
 
   // Semibold
