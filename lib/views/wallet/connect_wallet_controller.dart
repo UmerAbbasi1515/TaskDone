@@ -4,6 +4,7 @@ import 'package:taskdone/utilities/constants/assets_path.dart';
 import 'package:taskdone/utilities/constants/meta_labels.dart';
 
 class ConnectWalletController extends GetxController {
+  RxBool tempVar = false.obs;
   RxString selectedWallet = "".obs;
   List<WalletModel> availableWallets = [
     WalletModel(image: AppImagesPath.easypaisa, title: AppLabels.easyPaisa),

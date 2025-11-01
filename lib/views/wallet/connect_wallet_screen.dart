@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
@@ -40,7 +39,6 @@ class _ConnectWalletScreenState extends State<ConnectWalletScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final totalItems = controller.wallets.length + 1;
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -78,77 +76,89 @@ class _ConnectWalletScreenState extends State<ConnectWalletScreen> {
                 SizedBox(height: 3.h),
                 SizedBox(
                   height: 56.h,
-                  child: ListView.builder(
-                    itemCount: totalItems,
-                    itemBuilder: (context, index) {
-                      if (index == controller.wallets.length) {
-                        return GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              controller.selectedWallet.value = "";
-                            });
-                            showDialog(
-                              context: context,
-                              builder: (context) => AlertDialog(
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(20)),
-                                content: UnconstrainedBox(
-                                  constrainedAxis: Axis.horizontal,
-                                  child: SizedBox(
-                                    width: 95.w,
-                                    child: buildLinkWalletPopup(
-                                        context, controller),
-                                  ),
-                                ),
-                              ),
-                            );
-                          },
-                          child: Container(
-                            margin: EdgeInsets.only(bottom: 2.h),
-                            width: double.infinity,
-                            padding: const EdgeInsets.all(16),
-                            decoration: BoxDecoration(
-                              border: Border.all(color: Colors.grey.shade300),
-                              borderRadius: BorderRadius.circular(16),
-                            ),
-                            child: Row(
-                              children: [
-                                Icon(Icons.add, size: 8.h, color: Colors.grey),
-                                SizedBox(width: 1.w),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      AppLabels.linkNewWallet,
-                                      style: AppTextStyle.mediumblack18,
-                                    ),
-                                    SizedBox(height: 4),
-                                    SizedBox(
-                                      width: 60.w,
-                                      child: Text(
-                                        AppLabels.receiveYourEarningdirectly,
-                                        style: AppTextStyle.regularblack15,
-                                        maxLines: 2,
+                  child: Obx(() {
+                    return controller.tempVar.value
+                        ? SizedBox()
+                        : ListView.builder(
+                            itemCount: controller.wallets.length + 1,
+                            itemBuilder: (context, index) {
+                              if (index == controller.wallets.length) {
+                                return GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      controller.selectedWallet.value = "";
+                                    });
+                                    showDialog(
+                                      context: context,
+                                      builder: (context) => AlertDialog(
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(20)),
+                                        content: UnconstrainedBox(
+                                          constrainedAxis: Axis.horizontal,
+                                          child: SizedBox(
+                                            width: 95.w,
+                                            child: buildLinkWalletPopup(
+                                                context, controller),
+                                          ),
+                                        ),
                                       ),
+                                    );
+                                  },
+                                  child: Container(
+                                    margin: EdgeInsets.only(bottom: 2.h),
+                                    width: double.infinity,
+                                    padding: const EdgeInsets.all(16),
+                                    decoration: BoxDecoration(
+                                      border: Border.all(
+                                          color: Colors.grey.shade300),
+                                      borderRadius: BorderRadius.circular(16),
                                     ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                        );
-                      }
-                      // Existing wallet cards
-                      return AddedWalletWidget(
-                        image: controller.wallets[index].image ?? "",
-                        title: controller.wallets[index].title ?? "",
-                        accountHolder:
-                            controller.wallets[index].accountHolder ?? "",
-                        accountNumber:
-                            controller.wallets[index].accountNumber ?? "",
-                      );
-                    },
-                  ),
+                                    child: Row(
+                                      children: [
+                                        Icon(Icons.add,
+                                            size: 8.h, color: Colors.grey),
+                                        SizedBox(width: 1.w),
+                                        Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              AppLabels.linkNewWallet,
+                                              style: AppTextStyle.mediumblack18,
+                                            ),
+                                            SizedBox(height: 4),
+                                            SizedBox(
+                                              width: 60.w,
+                                              child: Text(
+                                                AppLabels
+                                                    .receiveYourEarningdirectly,
+                                                style:
+                                                    AppTextStyle.regularblack15,
+                                                maxLines: 2,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                );
+                              }
+                              // Existing wallet cards
+                              return AddedWalletWidget(
+                                image: controller.wallets[index].image ?? "",
+                                title: controller.wallets[index].title ?? "",
+                                accountHolder:
+                                    controller.wallets[index].accountHolder ??
+                                        "",
+                                accountNumber:
+                                    controller.wallets[index].accountNumber ??
+                                        "",
+                              );
+                            },
+                          );
+                  }),
                 ),
                 SizedBox(height: 2.h),
                 Center(
@@ -349,23 +359,19 @@ class _LinkWalletDetailPopupState extends State<LinkWalletDetailPopup> {
                               controller.phoneNumber.value.isEmpty
                           ? null
                           : () {
-                              setState(() {
-                                controller.wallets.add(
-                                  WalletModel(
-                                    image: controller.selectedWallet.value
-                                                .toLowerCase() ==
-                                            "easypaisa"
-                                        ? AppImagesPath.easypaisa
-                                        : AppImagesPath.jasscash,
-                                    title: controller.selectedWallet.value,
-                                    accountHolder: controller.fullname.value,
-                                    accountNumber: controller.phoneNumber.value,
-                                  ),
-                                );
-                              });
-                              setState(() {
-                                Navigator.pop(context);
-                              });
+                              controller.wallets.add(
+                                WalletModel(
+                                  image: controller.selectedWallet.value
+                                              .toLowerCase() ==
+                                          "easypaisa"
+                                      ? AppImagesPath.easypaisa
+                                      : AppImagesPath.jasscash,
+                                  title: controller.selectedWallet.value,
+                                  accountHolder: controller.fullname.value,
+                                  accountNumber: controller.phoneNumber.value,
+                                ),
+                              );
+                              Navigator.pop(context);
                             },
                       color: AppColors.purple,
                       textStyle: AppTextStyle.regularWhite17,
